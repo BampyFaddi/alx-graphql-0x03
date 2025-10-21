@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Administrator/Desktop/alx-graphql-0x03/alx-rick-and-morty-app/pages/_error.tsx"],"sourcesContent":["import * as Sentry from \"@sentry/nextjs\";\nimport Error from \"next/error\";\n\nconst CustomErrorComponent = (props) => {\n  return <Error statusCode={props.statusCode} />;\n};\n\nCustomErrorComponent.getInitialProps = async (contextData) => {\n  // In case this is running in a serverless function, await this in order to give Sentry\n  // time to send the error before the lambda exits\n  await Sentry.captureUnderscoreErrorException(contextData);\n\n  // This will contain the status code of the response\n  return Error.getInitialProps(contextData);\n};\n\nexport default CustomErrorComponent;\n"],"names":[],"mappings":";;;;;AAAA;AACA;;;;AAEA,MAAM,uBAAuB,CAAC;IAC5B,qBAAO,qKAAC,0IAAK;QAAC,YAAY,MAAM,UAAU;;;;;;AAC5C;AAEA,qBAAqB,eAAe,GAAG,OAAO;IAC5C,uFAAuF;IACvF,iDAAiD;IACjD,MAAM,gKAAsC,CAAC;IAE7C,oDAAoD;IACpD,OAAO,0IAAK,CAAC,eAAe,CAAC;AAC/B;uCAEe","debugId":null}}]
-}
